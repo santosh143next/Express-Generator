@@ -22,6 +22,10 @@ const Dishes = require('./models/dishes');
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 
+const uploadRouter = require('./routes/uploadRouter');
+
+app.use('/imageUpload', uploadRouter);
+
 connect.then((db) => {
     console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
